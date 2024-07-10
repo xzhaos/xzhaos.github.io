@@ -1,0 +1,504 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv=Content-Type  content="text/html; charset=utf-8" ><meta name=ProgId  content=Word.Document ><meta name=Generator  content="Microsoft Word 14" ><meta name=Originator  content="Microsoft Word 14" ><link rel=File-List  href="Deep Dive into LLaMa 3 (4).files/filelist.xml" ><title></title><!--[if gte mso 9]><xml><o:DocumentProperties><o:Author>nbkoohw</o:Author><o:LastAuthor>WPS_1706465650</o:LastAuthor><o:Revision>1</o:Revision><o:Pages>8</o:Pages><o:Lines>1</o:Lines><o:Paragraphs>1</o:Paragraphs></o:DocumentProperties><o:CustomDocumentProperties><o:KSOProductBuildVer dt:dt="string" >1033-12.2.0.17119</o:KSOProductBuildVer><o:ICV dt:dt="string" >1856F3F5D25A40CE9B86ED657E386E2E_13</o:ICV></o:CustomDocumentProperties></xml><![endif]--><!--[if gte mso 9]><xml><o:OfficeDocumentSettings></o:OfficeDocumentSettings></xml><![endif]--><!--[if gte mso 9]><xml><w:WordDocument><w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel><w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery><w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:DocumentKind>DocumentNotSpecified</w:DocumentKind><w:DrawingGridVerticalSpacing>7.8 磅</w:DrawingGridVerticalSpacing><w:PunctuationKerning></w:PunctuationKerning><w:View>Web</w:View><w:Compatibility><w:DontGrowAutofit/></w:Compatibility><w:Zoom>0</w:Zoom></w:WordDocument></xml><![endif]--><!--[if gte mso 9]><xml><w:LatentStyles DefLockedState="false"  DefUnhideWhenUsed="true"  DefSemiHidden="true"  DefQFormat="false"  DefPriority="99"  LatentStyleCount="260" >
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Normal" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="heading 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="heading 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="heading 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="heading 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="heading 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="heading 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 9" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 9" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 9" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Normal Indent" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="footnote text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="annotation text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="header" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="footer" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index heading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="caption" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="table of figures" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="envelope address" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="envelope return" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="footnote reference" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="annotation reference" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="line number" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="page number" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="endnote reference" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="endnote text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="table of authorities" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="macro" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toa heading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Title" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Closing" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Signature" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  UnhideWhenUsed="false"  Name="Default Paragraph Font" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text Indent" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Message Header" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Subtitle" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Salutation" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Date" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text First Indent" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text First Indent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Note Heading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text Indent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text Indent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Block Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Hyperlink" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="FollowedHyperlink" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Strong" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Emphasis" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Document Map" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Plain Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="E-mail Signature" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Normal (Web)" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Acronym" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Address" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Cite" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Code" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Definition" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Keyboard" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Preformatted" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Sample" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Typewriter" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Variable" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  UnhideWhenUsed="false"  Name="Normal Table" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="annotation subject" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="No List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="1 / a / i" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="1 / 1.1 / 1.1.1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="Article / Section" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Simple 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Simple 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Simple 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Classic 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Classic 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Classic 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Classic 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Colorful 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Colorful 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Colorful 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table 3D effects 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table 3D effects 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table 3D effects 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Contemporary" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Elegant" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Professional" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Subtle 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Subtle 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Web 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Web 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Web 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Balloon Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Theme" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="Placeholder Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="No Spacing" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="List Paragraph" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="Quote" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="Intense Quote" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 6" ></w:LsdException>
+</w:LatentStyles></xml><![endif]--><style>
+@font-face{
+font-family:"Times New Roman";
+}
+
+@font-face{
+font-family:"宋体";
+}
+
+@font-face{
+font-family:"Arial";
+}
+
+@font-face{
+font-family:"Wingdings";
+}
+
+p.MsoNormal{
+mso-style-name:Normal;
+mso-style-parent:"";
+margin:0pt;
+margin-bottom:.0001pt;
+line-height:114%;
+font-family:Arial;
+font-size:15.0000pt;
+}
+
+h1{
+mso-style-name:"Heading 1";
+mso-style-next:Normal;
+margin-top:20.0000pt;
+margin-bottom:6.0000pt;
+page-break-after:avoid;
+mso-pagination:lines-together;
+line-height:114%;
+font-family:Arial;
+font-size:20.0000pt;
+}
+
+h2{
+mso-style-name:"Heading 2";
+mso-style-next:Normal;
+margin-top:18.0000pt;
+margin-bottom:6.0000pt;
+page-break-after:avoid;
+mso-pagination:lines-together;
+line-height:114%;
+font-family:Arial;
+font-size:21.0000pt;
+}
+
+h3{
+mso-style-name:"Heading 3";
+mso-style-next:Normal;
+margin-top:16.0000pt;
+margin-bottom:4.0000pt;
+page-break-after:avoid;
+mso-pagination:lines-together;
+line-height:114%;
+font-family:Arial;
+color:rgb(67,67,67);
+mso-ansi-font-weight:normal;
+font-size:14.0000pt;
+}
+
+h4{
+mso-style-name:"Heading 4";
+mso-style-next:Normal;
+margin-top:14.0000pt;
+margin-bottom:4.0000pt;
+page-break-after:avoid;
+mso-pagination:lines-together;
+line-height:114%;
+font-family:Arial;
+color:rgb(102,102,102);
+font-size:12.0000pt;
+}
+
+h5{
+mso-style-name:"Heading 5";
+mso-style-next:Normal;
+margin-top:12.0000pt;
+margin-bottom:4.0000pt;
+page-break-after:avoid;
+mso-pagination:lines-together;
+line-height:114%;
+font-family:Arial;
+color:rgb(102,102,102);
+font-size:11.0000pt;
+}
+
+h6{
+mso-style-name:"Heading 6";
+mso-style-next:Normal;
+margin-top:12.0000pt;
+margin-bottom:4.0000pt;
+page-break-after:avoid;
+mso-pagination:lines-together;
+line-height:114%;
+font-family:Arial;
+color:rgb(102,102,102);
+mso-ansi-font-style:italic;
+font-size:11.0000pt;
+}
+
+span.10{
+font-family:Arial;
+}
+
+p.MsoSubtitle{
+mso-style-name:Subtitle;
+mso-style-next:Normal;
+margin-top:0.0000pt;
+margin-bottom:16.0000pt;
+page-break-after:avoid;
+mso-pagination:lines-together;
+line-height:114%;
+font-family:Arial;
+color:rgb(102,102,102);
+mso-ansi-font-style:normal;
+font-size:15.0000pt;
+}
+
+p.MsoTitle{
+mso-style-name:Title;
+mso-style-next:Normal;
+margin-top:0.0000pt;
+margin-bottom:3.0000pt;
+page-break-after:avoid;
+mso-pagination:lines-together;
+line-height:114%;
+font-family:Arial;
+font-size:26.0000pt;
+}
+
+span.msoIns{
+mso-style-type:export-only;
+mso-style-name:"";
+text-decoration:underline;
+text-underline:single;
+color:blue;
+}
+
+span.msoDel{
+mso-style-type:export-only;
+mso-style-name:"";
+text-decoration:line-through;
+color:red;
+}
+
+table.MsoNormalTable{
+mso-style-name:"Table Normal";
+mso-style-parent:"";
+mso-style-noshow:yes;
+mso-tstyle-rowband-size:0;
+mso-tstyle-colband-size:0;
+mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt;
+mso-para-margin:0pt;
+mso-para-margin-bottom:.0001pt;
+mso-pagination:widow-orphan;
+font-family:'Times New Roman';
+font-size:10.0000pt;
+mso-ansi-language:#0400;
+mso-fareast-language:#0400;
+mso-bidi-language:#0400;
+}
+
+table.17{
+mso-style-name:"Table Normal1";
+mso-tstyle-rowband-size:0;
+mso-tstyle-colband-size:0;
+mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt;
+mso-para-margin:0pt;
+mso-para-margin-bottom:.0001pt;
+mso-pagination:widow-orphan;
+font-family:'Times New Roman';
+font-size:10.0000pt;
+mso-ansi-language:#0400;
+mso-fareast-language:#0400;
+mso-bidi-language:#0400;
+}
+@page{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}@page Section0{
+margin-top:72.0000pt;
+margin-bottom:72.0000pt;
+margin-left:72.0000pt;
+margin-right:72.0000pt;
+size:612.0000pt 792.0000pt;
+mso-header-margin:36.0000pt;
+mso-footer-margin:36.0000pt;
+}
+div.Section0{page:Section0;}</style></head><body style="tab-interval:36pt;" ><!--StartFragment--><div class="Section0" ><p class=MsoTitle ><a name="_d9ifcgdw4gc8" ></a><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:36.0000pt;" >Deep Dive into LLaMa 3</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:36.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >LLaMa 3 is the LLM open sourced by Meta. The author has reversed engineer the model architecture from the </span><span><a href="https://github.com/meta-llama/llama3/blob/main/llama/model.py" ><u><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;color:rgb(17,85,204);
+text-decoration:underline;text-underline:single;font-size:15.0000pt;" >source code</span></u></a></span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >. The purpose of the document is to provide readers an easy way to understand LLaMa 3 model and LLM in general. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><h2><a name="_iuc5q13gymnu" ></a><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" >Overall Architecture </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" ><o:p></o:p></span></h2><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >LLaMa 3 model consists of one embedding layer, 32 transformer layers and one final dense layer. The following diagram illustrates the high level flow of data from word sequence to final output. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >From the original word sequence, the input is first converted into token Ids by the tokenizer. The tokenizer LLaMa uses is called </span><span><a href="https://github.com/openai/tiktoken" ><u><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;color:rgb(17,85,204);
+text-decoration:underline;text-underline:single;font-size:15.0000pt;" >tiktoken </span></u></a></span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >from Open AI. The token Ids are then transformed into 4096 dimension vectors by the embedding layer. Because LLaMa 3 has 128k token in vocabulary, the embedding layer weight is 128k x 4096 dimension tensor (matrice). The output of embedding layers is a vector with dimension of 4096 for each token. &nbsp;</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >This vector forms the input into the first transformer layer and the output of the first transformer then becomes the input of the second transformer layer, and so on and so forth. Because the input and output of the transformer layer is of the same shape, it is possible to stack as many transformer layers as needed. LLaMa 3 has 32 layers. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >The final output from transformer layers then feed into the final dense layer which creates the final output of the 128k dimension vector. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><img width="441"  height="661"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)1534.png" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><h2><a name="_vdy5zymssf7w" ></a><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" >Transformer Layer</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" ><o:p></o:p></span></h2><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Transformer layer is the core part of the LLM model. This layer is based on a self-attention mechanism, which basically means the model needs to know the relationship between a token with any other tokens in the sequence. This is achieved by deriving three values: Q, K, V, also known as attention head. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><img width="624"  height="687"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)1862.png" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Q represents the current token. K represents all the tokens in the sequence. V represents the value of tokens in the sequence. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >For each token (actually embedding vector </span><i style="mso-bidi-font-style:normal" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;mso-ansi-font-style:italic;
+font-size:15.0000pt;" >X</span></i><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >), it will calculate Q, K, V as following: </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Q = W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >q</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X, &nbsp;&nbsp;K = W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >k</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X, V = W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >v</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >For Q and K, the model needs to add position embedding. We will talk about position embedding in the next section. Let’s now just assume after the position embedding, we will have a new Q and K. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >However, for K and V, we need to form the complete sequence of all previous tokens in the sequence so we can understand the relationship between current token and previous token. To avoid calculating K, V for each token again and again, the model actually creates a KV cache so we can store the previously calculated K, V values. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Thus, </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal  style="text-indent:36.0000pt;" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >K = [ W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >k</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >1</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >k</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >2</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >k</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >3</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, …, W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >k</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >n </span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;] &nbsp;X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >n</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;is the current token vector. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal  style="text-indent:36.0000pt;" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >V = [ W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >v</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >1</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >v</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >2</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >v</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >3</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, …, W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >v</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >n </span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;] &nbsp;X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >n</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;is the current token vector. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal  style="margin-left:0.0000pt;text-indent:0.0000pt;" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal  style="margin-left:0.0000pt;text-indent:0.0000pt;" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >So eventually K and V are matrices of dimension: seq_length x attention head dim. In LLaMa 3, the attention head dim = 128. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal  style="margin-left:0.0000pt;text-indent:0.0000pt;" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal  style="margin-left:0.0000pt;text-indent:0.0000pt;" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Finally, we calculate the attention scores of the current token against all other tokens. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal  style="margin-left:0.0000pt;text-indent:0.0000pt;" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal  style="margin-left:0.0000pt;text-indent:36.0000pt;" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >score = </span><img width="121"  height="39"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)3012.png" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Q is 1 x 128 dimension vector, </span><img width="23"  height="24"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)3045.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><font face="Arial" >’s dim is 128 x seq_len, </font></span><img width="27"  height="26"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)3071.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;dim is seq_len x 128. So the final score is 1 x 128 dimension vector. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >The model then applies a softmax function on the score. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >S = softmax(score)</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >LLaMa 3 actually has 32 attention heads so we have 32 S</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >i</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, i = 1, 2, …, 32</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >We then concatenate the S</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >i</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;into one vector S = [ S</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >1</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >S</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >2</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><font face="Arial" >…S</font></span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >32</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >] which is a 4096 (=128*32) dimension vector. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Then the model applies a linear transformation on S and adds back X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >n</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Output = W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >o</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >S + X</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >n</span></sub><sub><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" ><o:p></o:p></span></sub></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >The dimension of Output vector is still 4096</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >This is the attention layer output but we are not done yet for the transformer layer. The model needs to normalize output. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Normalized Output (Z) = </span><span><a href="https://dl.acm.org/doi/pdf/10.5555/3454287.3455397" ><u><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;color:rgb(17,85,204);
+text-decoration:underline;text-underline:single;font-size:15.0000pt;" >Root Mean Square Normalization Function</span></u></a></span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;(S)</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Then finally, we will apply fully connected layer with </span><span><a href="https://pytorch.org/docs/stable/generated/torch.nn.SiLU.html" ><u><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;color:rgb(17,85,204);
+text-decoration:underline;text-underline:single;font-size:15.0000pt;" >sigmoid linear unit</span></u></a></span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;activation:</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Final Output = W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >2</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >(F.silu(W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >1</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Z) * W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >3</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Z) &nbsp;</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Note: * here is element wise multiplication</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Z is 4096 x 1, W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >1</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;and W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >3</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><font face="Arial" >’s dim are 11008 x 4096, W</font></span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >2</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><font face="Arial" >’s dim is 4096 x 11008. </font></span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >The final output is still a 4096 dimension vector. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >The above process then repeated for 32 times. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><h2><a name="_33m5qc9l7em5" ></a><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" >Final Dense Layer</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" ><o:p></o:p></span></h2><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >The final dense layer is quite straightforward. It takes the output from the last transformer layer and applies the weight matrix to convert it to a 128k vector (each value in the vector represents the logit value of each token in vocabulary).</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Logits = </span><img width="403"  height="24"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4504.png" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><img width="57"  height="23"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4507.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;has 128k x 4096 dimensions. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><h2><a name="_s4cg2s6mvcn2" ></a><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" >Position Embedding</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" ><o:p></o:p></span></h2><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >LLaMa 3 is using </span><span><a href="https://arxiv.org/pdf/2104.09864" ><u><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;color:rgb(17,85,204);
+text-decoration:underline;text-underline:single;font-size:15.0000pt;" >rotary position embedding</span></u></a></span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >. Rotary position embedding is better at preserving relative position than absolute position embedding. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >First a frequency list is defined as: </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Freqs = 1, &nbsp;</span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4810.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;, </span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4814.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;, </span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4818.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, … </span><img width="66"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4823.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >T = 1, 2, 3, …, 2048 &nbsp;(this represents the absolute position in sequence)</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Freqs matrix = cross product of Freqs and T, it will look like this</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >1, &nbsp;</span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4973.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;, </span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4977.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;, </span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4981.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, … </span><img width="66"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4986.png" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >2, &nbsp;</span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4992.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;, </span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)4996.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;, </span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)5000.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, … </span><img width="66"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)5005.png" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><font face="Arial" >…</font></span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >2048, &nbsp;</span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)5016.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;, </span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)5020.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;, </span><img width="46"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)5024.png" ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, … </span><img width="66"  height="35"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)5029.png" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Freqs polar matrix = convert Freqs Matrix from Polar coordinate to x-y coordinate</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >In LLaMa 3, the default value of </span><img width="118"  height="24"  src="Deep Dive into LLaMa 3 (4).files/Deep Dive into LLaMa 3 (4)5147.png" ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >For Q and K in attention head, we will apply position embedding as following:</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >P is the position in sequence. Freqs Matrix </span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >p </span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;is p-th row in Freqs Matrix. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Q = Q</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >p</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;* Freqs Matrix </span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >p</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;(element wise multiplication)</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >K = K</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >p</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;* Freqs Matrix </span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >p</span></sub><sub><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" ><o:p></o:p></span></sub></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >The above requires manipulation of Q and K so they will fit to u * 2 dimensions before doing element wise multiplication. For example, if Q is 128 dim, then we need to reshape Q into 64 x 2. Each value of Q is then multiplying with Freq Matrix 64 of x-y coordinates. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >For each position, there are 2048 x-y coordinate pairs. Because we have 32 attention heads, each attention head is going to use 64 of x-y coordinate pairs. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><h2><a name="_24n1a0o80ulx" ></a><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" >Parameter Count</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" ><o:p></o:p></span></h2><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >How many parameters does LLaMa 3 model have using the default settings (dim = 4096, layers = 32, Vocab size = 128 k) ? </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Embedding Layer: 128k * 4096 = 524M</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Each Transformer Layer:</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >q</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >k</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >, W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >v</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;= 3 * 128 (head dim) * 4096 * 32 (heads) = 50 M</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >o</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;= 4096 * 4096 = 17 M</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >W</span><sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;
+vertical-align:sub;" >1,2,3</span></sub><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;= 11008 * 4096 * 3 = 135 M</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Total = 202 M</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Final Dense Layer: 128k * 4096 = 524M</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >Total Parameter Count = Embedding Layer + 32 * Transformer Layer + Final Dense Layer </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&#9;</span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >&nbsp;&nbsp;= 524 M + 32 * 202 M + 524M = 7.5 B</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >So if we use the default setting, the model is LLaMa 3 8B model. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><h2><a name="_bumf2d3ftxpf" ></a><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" >Calculation Process</span><span style="mso-spacerun:'yes';font-family:Arial;font-size:21.0000pt;" ><o:p></o:p></span></h2><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >In order to speed up both training and inference speed, the calculation is parallelized across all the tokens in the sequence. Also, the input sequences can be batched. Therefore, the typical dimensions of a tensor in the model would be batch_size * seq_len * embedding dim. For weight tensor, there usually would be another dimension added. </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >To parallelize the matrix multiplication, LLaMa 3 utilizes the parallel layers from </span><span><a href="https://github.com/facebookresearch/fairscale/blob/main/fairscale/nn/model_parallel/layers.py" ><u><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;color:rgb(17,85,204);
+text-decoration:underline;text-underline:single;font-size:15.0000pt;" >Fairscale </span></u></a></span><span dir="LTR"  style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" >(also from Meta). </span><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p></o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=MsoNormal ><span style="mso-spacerun:'yes';font-family:Arial;font-size:15.0000pt;" ><o:p>&nbsp;</o:p></span></p></div><!--EndFragment--></body></html>
