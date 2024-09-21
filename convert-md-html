@@ -1,1 +1,2 @@
 generate-md --layout github --input ./newsletter_md --output ./newsletters
+git push origin main
