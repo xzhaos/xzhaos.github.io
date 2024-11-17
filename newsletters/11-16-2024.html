@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Xu&#x27;s AI Newsletter Nov 9, 2024</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/hljs-github.min.css"/>
+  </head>
+  <body>
+    <article class="markdown-body"><h1 id="xus-ai-newsletter-nov-9-2024"><a class="header-link" href="#xus-ai-newsletter-nov-9-2024"></a>Xu&#39;s AI Newsletter Nov 9, 2024</h1>
+<h2 id="economics-of-llm-serving"><a class="header-link" href="#economics-of-llm-serving"></a>Economics of LLM Serving</h2>
+<p>LLMs require running on top of the line GPUs for low latency responses in production setting. Today, we will go through the economics of hosting LLM models. </p>
+<p>Let&#39;s start with one of the largest open source model, LLaMa 3.1 405B model. To host this model, we need at least 405B * 2 = 810 GB GPU memory if we use FP16 data type for all the weights. The top of the line GPU H100-80GB only has 80GB. which means we need at least 11 such GPU to just load the model. </p>
+<p>In additon to model weights, we also need to load input and output KV values in GPU memory too. This is called KV cache. There are 126 transformer layers and embedding size of 16,384. Therefore each token requires 2<em>2</em>126*16384 = 8MB. </p>
+<p>Next, let&#39;s figure out how many tokens we can process or generate per second. This depends on our latency objective and input/output length. There are two stages in LLM inference: Prefill and decode. </p>
+<p>In the prefill stage if we assume input length is 100. For FP16, H100 SXM can run at 1979 TFLOPS and memory bandwith of 3.35TB/s ([<a href="https://www.colfax-intl.com/nvidia/nvidia-h100]">https://www.colfax-intl.com/nvidia/nvidia-h100]</a>). So approximately, the TTFT (time to first token) is roughtly 2 * 405 * 100 / 1979 + 2 * 405 / 3.35  = 282 ms. However, this number is assuming we are running on one GPU which is not realistic. Given we need at least 11 GPU to run, let&#39;s assume we have 16 GPUs and run the tensor operations in parallel using tensor parallelism. so we can cut the TTFT roughly to 282 / 16 = 18 ms (ignoring all the GPU netwroking overhead). 18ms is an acceptable latency for TTFT. </p>
+<p>During decode stage, for inter token latency, it is completely dependent on memory bandwith so it is just 2 * 405 / 3.35 = 242. Again, assuming we parallel across all 16 GPU, we have inter token latency = 242 / 16 = 15 ms. So every second, the first 18 ms second, we will handle 100 input tokens, then for rest of 1000-18 = 982 ms we will generate output token one at a time. so overall, we can have 982 / 15 = 65 tokens. </p>
+<p>So what is the cost of using 16 H100 SXM GPUs? According to <a href="https://www.colfax-intl.com/nvidia/nvidia-h100">https://www.colfax-intl.com/nvidia/nvidia-h100</a>, it is roughly 32/hour (with 2 year price). This translated to 0.009 per second. Since we have processed 100 input token nd 65 output token during that time, we can allocate the 0.9 cents between them. Let&#39;s say, we assign 0.1 cent for input tokens, the 0.8 for output tokens. We can calculate the cost for 1000 input token is 1 cent and cost for 1000 output token is 12 cents. One can slice and dice the distribution different but this is very expensive. </p>
+<p>However, we don&#39;t have to do prefill and decode on the same sets of GPU because this is not the optimal way of using all the GPUs. If we put prefill stages on one sets of GPUs and decoding stages on another set of GPUs, we can process and generate more tokens. </p>
+<p>Let&#39;s assume we are using instead of 16 GPUs but rather 28 GPUs. we split them into 12 and 20. The 12 GPUs will do the prefill stage and 16 GPU will do the decoding. In this case we can process lots more input tokens. As a matter fact, we can handle roughly 28K input tokens in one second. However, we limited by KV cache memory, which will limit us to just 2K input tokens. 12 GPU costs roughly around 24/hour or 0.66 cents per second. So that translates into 3.22 dollar per million input tokens.  </p>
+<p>For output token, if we use the remaining capacity of 12 GPU also to generate output token for &quot;free&quot;, we will have 60 + 66 = 126 tokens at the cost of 0.9 cent. this turns out to be 71 dollars per million output token.  </p>
+<p>Comparing this cose to Open AI gpt 4o which is 2.5 per million input tokens and 10 per million output tokens. It is still too expensive to host your own 405B model. You would be better off to use the hosted model as those companies are probably subsidizing their customers to gain market share. </p>
+<p>However, if you have very small model such as Llama 8B, then the calculus would be very different.Let&#39;s do a quick calculation. The model only takes roughly 16GB, that left us 80 - 16 = 64GB for KV cache. Each token only needs 0.5MB so we can hold 128K tokens to process. The inter token latency is 2*8/3.35 = 4.8 ms. this will translate to 200 output tokens per second. One GPU is 2/hour so it is 2.7 per million output tokens and we get input token processed for &quot;free&quot;. Additional optimization will drive the cost down even further. So if your use case works well with smaller models, it is better to host yourself if you have large workload (i.e. your workload can keep GPU busy most of the time). </p>
+<h3 id="is-cloud-provider-making-money-when-they-charge-2hr-for-h100-sxm"><a class="header-link" href="#is-cloud-provider-making-money-when-they-charge-2hr-for-h100-sxm"></a>is cloud provider making money when they charge $2/hr for H100 SXM?</h3>
+<p>If cloud provider charges 2/hr, then in two years, they can get $35K. </p>
+<p>On the cost side, if we use listing price of 30K for H100 SXM (vendor may get some discount from listing price but not much given the high demand) and add electricity cost of 2K for two years, the total will be 32K without considering other hardware, software, maintenance and personel cost. So the cloud provider is not really making much in the first two years. They probably hope their GPU is valuable to some customers after two years when they start to make money. </p>
+<p>Who gets the most of the revenue in this value chain? Obviously Nvidia who has 75% gross margin. This translates to $22K gross profit for such chip. Remarkable. </p>
+    </article>
+  </body>
+</html>
