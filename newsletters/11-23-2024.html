@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Xu&#x27;s AI Newsletter Nov 23, 2024</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/hljs-github.min.css"/>
+  </head>
+  <body>
+    <article class="markdown-body"><h1 id="xus-ai-newsletter-nov-23-2024"><a class="header-link" href="#xus-ai-newsletter-nov-23-2024"></a>Xu&#39;s AI Newsletter Nov 23, 2024</h1>
+<h2 id="alternatives-to-nvidia-gpus-to-run-ai-inference-workloads"><a class="header-link" href="#alternatives-to-nvidia-gpus-to-run-ai-inference-workloads"></a>Alternatives to NVidia GPUs to run AI inference workloads</h2>
+<p>Today, we will go over some alternatives to expensive Nvidia GPUs to run AI inferencing. </p>
+<h3 id="google"><a class="header-link" href="#google"></a>Google</h3>
+<p>Google introduced TPU (Tensor Processing Unit) in 2016 and was specifically designed for Tensorflow framework (source: <a href="https://en.wikipedia.org/wiki/Tensor_Processing_Unit">https://en.wikipedia.org/wiki/Tensor_Processing_Unit</a>). With rise of LLM and widespread adoption of PyTorch, Nvidia became the dominant force in tensor (matrix) computing platform. In last two years, Google has made significant investments into TPU to compete with Nvidia GPUs. Last year, Google released TPU v5p which has 95 GB HBM (High bandwidth memory) and 2765 GB/s memory bandwidth, which has higher specification for memory and bandwidth than A100-80G. Google also recently released sixth-generation TPU, Trillium now available in preview. </p>
+<p>TPU is XLA (Accelerated Linear Algebra) devices. So you need framework that supports XLA. In addition to Tensflow, PyTorch also has XLA support added in 2018. With XLA 2.0 release last year, PyTorch now has significantly improved inference speed (average ~2x) for XLA devices. [<a href="https://pytorch.org/blog/pytorch-2.0-xla/]">https://pytorch.org/blog/pytorch-2.0-xla/]</a></p>
+<p>Customers can use Jetstream model server to serve LLM model on TPUs. [<a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/serve-llm-tpu-jetstream-pytorch]">https://cloud.google.com/kubernetes-engine/docs/tutorials/serve-llm-tpu-jetstream-pytorch]</a> Alternatively, customers can also use vLLM model server [<a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/serve-vllm-tpu]">https://cloud.google.com/kubernetes-engine/docs/tutorials/serve-vllm-tpu]</a></p>
+<p>Performance: </p>
+<p><img src="https://pytorch.org/assets/images/high-performance-llama-2/fig6.jpg" alt="tpu v5e benchmark">
+Source: <a href="https://pytorch.org/blog/high-performance-llama-2/">https://pytorch.org/blog/high-performance-llama-2/</a></p>
+<p><img src="https://storage.googleapis.com/gweb-cloudblog-publish/images/2_zCFCoiH.max-1200x1200.png" alt="Trillium">
+Source: <a href="https://cloud.google.com/blog/products/compute/trillium-sixth-generation-tpu-is-in-preview">https://cloud.google.com/blog/products/compute/trillium-sixth-generation-tpu-is-in-preview</a></p>
+<h3 id="amd"><a class="header-link" href="#amd"></a>AMD</h3>
+<p>AMD is traditionally competing with Nvidia in GPU space. The company was missing out on initial AI training and inference due to lack of tensor software support for their GPU chips. PyTorch eventually added the ROCm backend in 2021. [<a href="https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/]">https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/]</a></p>
+<p>Since then, AMD has released Instinct MI300 series which are powerful accelerators. The top of the line is MI300X which has 192GB HBM3 memory with upto 5.3TB/s memory bandwidth. These specs are better than H100-80GB SXM which costs lot more. </p>
+<p>Customers can use vLLM to serve LLM on AMD Accelerators [<a href="https://rocm.blogs.amd.com/artificial-intelligence/vllm/README.html]">https://rocm.blogs.amd.com/artificial-intelligence/vllm/README.html]</a></p>
+<p>Performance:</p>
+<p><img src="https://valohai.com/blog/amd-gpu-performance-for-llm-inference/latency.svg" alt="AMD MI300">
+Source: <a href="https://valohai.com/blog/amd-gpu-performance-for-llm-inference/">https://valohai.com/blog/amd-gpu-performance-for-llm-inference/</a></p>
+<h3 id="intel"><a class="header-link" href="#intel"></a>Intel</h3>
+<p>Intel is also playing catch up games in AI space. The company&#39;s strategy is to add more softwre tooling to CPU stack especially Xeon series for AI inferencing space while developing viable AI chips such as Gaudi AI accelerator which is intended for training workload [<a href="https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi-overview.html]">https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi-overview.html]</a></p>
+<p>For AI inferencing, Intel has released Intel Extension for PyTorch which is an open source library extending PyTorch with optimizations for an extra performance boost on Intel hardware to take advantage of hardware capabilities like:</p>
+<ul class="list">
+<li>Intel® Advanced Vector Extensions 512 (Intel® AVX-512)</li>
+<li>Vector Neural Network Instructions (VNNI)</li>
+<li>Intel® Advanced Matrix Extensions (Intel® AMX) on Intel CPUs</li>
+<li>Intel® Xe Matrix Extensions (Intel® XMX) AI engines on Intel discrete GPUs.</li>
+</ul>
+<p>Starting with v2.2.0, Intel Extension for PyTorch provides comprehensive feature support and optimization for the LLM domain through its dedicated module called ipex.llm. On the operator level, the extension provides an efficient GEMM kernel to speed up the linear layer and customized operators to reduce the memory footprint. To better trade off the performance and accuracy, different low-precision solutions—such as SmoothQuant and weight-only-quantization—are also enabled, which allows the extension to support datatypes that include FP32, BF16, SmoothQuant for int8, and weight-only quantization for int8 and int4 (experimental). Typical key technical points like paged attention, ROPE fusion, and Tensor Parallelism are included to boost the performance for LLMs. </p>
+<p>Performance Benchmark on Intel Xeon processor running 7B/8B model</p>
+<p><img src="intel_benchmark.png" alt="intel benchmark" title="Source: Intel">
+Source: Intel</p>
+<p>As one can see, the 70-80ms inter token (TBT) latency is acceptable but first token (TTFT) latency of 1 second may be too high for most production use cases. However, if customers are not too strigent on TTFT latency and use cases are either for batch or streaming, using Intel Xeon processor could be an option for smaller models with size of 8B or below. </p>
+<p>If customers are using disaggretion between prefill and decode, it is potentially possible to run prefill stages on GPU and decoding stage on Xeon processor. This will bring down the TTFT latency with acceptable TBT latency while keeping the inferencing cost low. </p>
+    </article>
+  </body>
+</html>

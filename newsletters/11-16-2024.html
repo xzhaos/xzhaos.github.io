@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>Xu&#x27;s AI Newsletter Nov 9, 2024</title>
+    <title>Xu&#x27;s AI Newsletter Nov 16, 2024</title>
     <link type="text/css" rel="stylesheet" href="assets/css/github-markdown.css">
     <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css">
     <link type="text/css" rel="stylesheet" href="assets/css/hljs-github.min.css"/>
   </head>
   <body>
-    <article class="markdown-body"><h1 id="xus-ai-newsletter-nov-9-2024"><a class="header-link" href="#xus-ai-newsletter-nov-9-2024"></a>Xu&#39;s AI Newsletter Nov 9, 2024</h1>
+    <article class="markdown-body"><h1 id="xus-ai-newsletter-nov-16-2024"><a class="header-link" href="#xus-ai-newsletter-nov-16-2024"></a>Xu&#39;s AI Newsletter Nov 16, 2024</h1>
 <h2 id="economics-of-llm-serving"><a class="header-link" href="#economics-of-llm-serving"></a>Economics of LLM Serving</h2>
 <p>LLMs require running on top of the line GPUs for low latency responses in production setting. Today, we will go through the economics of hosting LLM models. </p>
 <p>Let&#39;s start with one of the largest open source model, LLaMa 3.1 405B model. To host this model, we need at least 405B * 2 = 810 GB GPU memory if we use FP16 data type for all the weights. The top of the line GPU H100-80GB only has 80GB. which means we need at least 11 such GPU to just load the model. </p>
