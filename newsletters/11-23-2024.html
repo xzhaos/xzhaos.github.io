@@ -29,8 +29,14 @@ Source: <a href="https://cloud.google.com/blog/products/compute/trillium-sixth-g
 <p><img src="https://valohai.com/blog/amd-gpu-performance-for-llm-inference/latency.svg" alt="AMD MI300">
 Source: <a href="https://valohai.com/blog/amd-gpu-performance-for-llm-inference/">https://valohai.com/blog/amd-gpu-performance-for-llm-inference/</a></p>
 <h3 id="intel"><a class="header-link" href="#intel"></a>Intel</h3>
-<p>Intel is also playing catch up games in AI space. The company&#39;s strategy is to add more softwre tooling to CPU stack especially Xeon series for AI inferencing space while developing viable AI chips such as Gaudi AI accelerator which is intended for training workload [<a href="https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi-overview.html]">https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi-overview.html]</a></p>
-<p>For AI inferencing, Intel has released Intel Extension for PyTorch which is an open source library extending PyTorch with optimizations for an extra performance boost on Intel hardware to take advantage of hardware capabilities like:</p>
+<p>Intel is also playing catch up games in AI space. The company&#39;s strategy is to add more softwre tooling to CPU stack especially Xeon series for AI inferencing space while developing viable AI chips such as Gaudi AI accelerator which is intended for training and inferencing workload [<a href="https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi-overview.html]">https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi-overview.html]</a></p>
+<p>The Gaudi 3 has higher specifications in some area than H100</p>
+<p class="img-container"><img src="https://www.nextplatform.com/wp-content/uploads/2024/06/intel-computex-gaudi-vs-nvidia-tnp-table-2.jpg" alt="Gaudi specs"></p>
+<p>Intel has released vLLM fork to support model serving on Gaudi: <a href="https://github.com/HabanaAI/vllm-fork">https://github.com/HabanaAI/vllm-fork</a>. It is expected this fork will be merged upstream to vLLM soon. </p>
+<p>Gaudi Performance:</p>
+<p><img src="https://www.nextplatform.com/wp-content/uploads/2024/06/intel-computex-gaudi-vs-nvidia-ai-inference-1.jpg" alt="Gaudi Performance">
+Source: <a href="https://www.nextplatform.com/2024/06/13/stacking-up-intel-gaudi-against-nvidia-gpus-for-ai/">https://www.nextplatform.com/2024/06/13/stacking-up-intel-gaudi-against-nvidia-gpus-for-ai/</a></p>
+<p>In addition to Gaudi, Intel has released Intel Extension for PyTorch which is an open source library extending PyTorch with optimizations for an extra performance boost on Intel hardware to take advantage of hardware capabilities like:</p>
 <ul class="list">
 <li>Intel® Advanced Vector Extensions 512 (Intel® AVX-512)</li>
 <li>Vector Neural Network Instructions (VNNI)</li>
